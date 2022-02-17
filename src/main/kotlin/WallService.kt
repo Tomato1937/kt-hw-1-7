@@ -1,4 +1,3 @@
 object WallService{
-    val original = emptyArray<Post>()
-
+    private var posts = emptyArray<Post>()
 }
