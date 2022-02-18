@@ -9,10 +9,10 @@ class WallServiceTest {
         //arrange
         val original = Post(id = 0)
         val service = WallService
-        val expected = Post(id = 1)
+        val expected = 1
 
         //act
-        val result = service.add(original)
+        val result = service.add(original).id
 
         //assert
         assertEquals(expected, result)
