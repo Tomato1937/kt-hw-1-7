@@ -2,7 +2,11 @@ object WallService{
     private var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
-        posts += post.copy(id = posts.size +1)
+        if (posts.size == 0) {
+            posts += post.copy(id = posts.size + 1)
+        } else {
+            posts += post.copy(id = posts.last().id + 1)
+        }
         return posts.last()
     }
 
@@ -15,4 +19,5 @@ object WallService{
         }
         return false
     }
+
 }
