@@ -13,7 +13,7 @@ data class Post (
     val likes: Likes = Likes(0, false, false, false),
     val reposts: Reposts = Reposts(0, false),
     val views: Views = Views(0),
-    val post_type: String = "none",
+    val postType: String = "none",
     val signerId: Int = 0,
     val canPin: Boolean = false,
     val canDelete: Boolean = false,
@@ -27,10 +27,10 @@ data class Post (
 
 class Comments(
     val count: Int = 0,
-    val can_post: Boolean = false,
-    val groups_can_post: Int = 0,
-    val can_close: Boolean = false,
-    val can_open: Boolean = false
+    val canPost: Boolean = false,
+    val groupsCanPost: Int = 0,
+    val canClose: Boolean = false,
+    val canOpen: Boolean = false
 )
 
 class Copyright(
@@ -42,14 +42,14 @@ class Copyright(
 
 class Likes(
     val count: Int = 0,
-    val user_likes: Boolean = false,
-    val can_like: Boolean = false,
-    val can_publish: Boolean = false
+    val userLikes: Boolean = false,
+    val canLike: Boolean = false,
+    val canPublish: Boolean = false
 )
 
 class Reposts(
     val count: Int = 0,
-    val user_reposted: Boolean = false
+    val userReposted: Boolean = false
 )
 
 class Views(
@@ -57,11 +57,11 @@ class Views(
 )
 
 class Donut(
-    val is_donut: Boolean = false,
-    val paid_duration: Int = 0,
+    val isDonut: Boolean = false,
+    val paidDuration: Int = 0,
     val placeholder: Placeholder,
-    val can_publish_free_copy: Boolean = false,
-    val edit_mode: String = "none"
+    val canPublishFreeCopy: Boolean = false,
+    val editMode: String = "none"
 )
 
 class Placeholder(
