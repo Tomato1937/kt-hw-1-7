@@ -14,7 +14,10 @@ data class Post (
     val reposts: Reposts = Reposts(0, false),
     val views: Views = Views(0),
     val postType: String = "none",
-    val signerId: Int = 0,
+    val postSource: PostSource = PostSource("none", "none", "none", "none"),
+    val geo: Geo = Geo("none", "none", place = null),
+    val signerId: Int? = null,
+    val copyHistory: Array<Post>? = null,
     val canPin: Boolean = false,
     val canDelete: Boolean = false,
     val canEdit: Boolean = false,
@@ -56,6 +59,19 @@ class Views(
     val count: Int = 0
 )
 
+class PostSource(
+    val type: String = "none",
+    val platform: String = "none",
+    val data: String = "none",
+    val url: String = "none"
+)
+
+class Geo(
+    val type: String = "none",
+    val coordinates: String = "none",
+    val place: Place? = Place()
+)
+
 class Donut(
     val isDonut: Boolean = false,
     val paidDuration: Int = 0,
@@ -66,4 +82,19 @@ class Donut(
 
 class Placeholder(
     val placeholder: Boolean = false
+)
+
+class Place(
+    val id: Int = 0,
+    val title: String = "none",
+    val latitude: Int = 0,
+    val longitude: Int = 0,
+    val created: Int = 0,
+    val icon: String = "none",
+    val checkins: Int = 0,
+    val updated: Int = 0,
+    val type: Int = 0,
+    val country: String = "none",
+    val city: String = "none",
+    val adress: String = "none"
 )
