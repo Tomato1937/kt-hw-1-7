@@ -1,5 +1,6 @@
 import org.junit.Test
 import org.junit.Assert.*
+import WallService.PostNotFoundException
 
 class WallServiceTest {
 
@@ -15,7 +16,6 @@ class WallServiceTest {
 
         //assert
         assertEquals(expected, result)
-
     }
 
     @Test
@@ -32,7 +32,6 @@ class WallServiceTest {
 
         //assert
         assertEquals(expected, result)
-
     }
 
     @Test
@@ -49,6 +48,29 @@ class WallServiceTest {
 
         //assert
         assertEquals(expected, result)
-
     }
+
+
+    @Test(expected = PostNotFoundException::class)
+    fun add_comment_not_exist_id() {
+        val service = WallService
+        val comment1 = Comment(14, text = "testText")
+
+        service.addComment(comment1)
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun comment_exist_id() {
+        val service = WallService
+        val original = Post(0,1, text = "Новая Нетология", date = 1590075360, signerId = 21)
+        val comment1 = Comment(33, text = "testText")
+        val expected = true
+
+        service.add(original)
+        val result = service.addComment(comment1)
+        service.addComment(comment1)
+
+        assertEquals(expected, result)
+    }
+
 }
