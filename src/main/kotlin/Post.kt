@@ -15,6 +15,7 @@ data class Post (
     val views: Views = Views(0),
     val postType: String = "none",
     val postSource: PostSource = PostSource("none", "none", "none", "none"),
+    val attachments: Array<Attachment>? = null,
     val geo: Geo = Geo("none", "none", place = null),
     val signerId: Int? = null,
     val copyHistory: Array<Post>? = null,
@@ -24,7 +25,8 @@ data class Post (
     val isPinned: Int = 0,
     val markedAsAds: Boolean = false,
     val isFavorite: Boolean = false,
-    val donut: Donut = Donut(false, 0, Placeholder(false), false, "none"),
+    val donut: Donut = Donut(false, 0, Placeholder(false),
+        false, "none"),
     val postponedId: Int = 0
 )
 

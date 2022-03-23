@@ -1,5 +1,18 @@
 object WallService{
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(comment: Comment): Boolean {
+        for (value in posts) {
+            if (value.id == comment.id) {
+                comments += comment//.copy(text = comment.text)
+                return true
+            }
+        }
+        throw PostNotFoundException("Сообщение с данным ID не найдено")
+    }
+
+    class PostNotFoundException(message: String): RuntimeException(message)
 
     fun add(post: Post): Post {
         if (posts.size == 0) {
@@ -19,5 +32,4 @@ object WallService{
         }
         return false
     }
-
 }
