@@ -2,10 +2,10 @@ object WallService{
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
 
-    fun createComment(comment: Comment): Boolean {
+    fun addComment(comment: Comment): Boolean {
         for (value in posts) {
             if (value.id == comment.id) {
-                comments += comment//.copy(text = comment.text)
+                comments += comment.copy(text = comment.text)
                 return true
             }
         }
